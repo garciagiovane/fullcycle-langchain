@@ -35,7 +35,7 @@ llm = ChatOpenRouter(
     model="gpt-5-mini",
     disable_streaming=True,
     name="Curso LangChain",
-    max_tokens=18245
+    max_tokens=18053
 )
 tools = [calculator, web_search_mock]
 
@@ -79,5 +79,5 @@ agent_executor = AgentExecutor.from_agent_and_tools(
     handle_parsing_errors="Invalid format. Either provide an Action with Action Input, or a Final Answer only.",
     max_iterations=3)
 
-# print(agent_executor.invoke({"input": "What is the capital of Iran?"}))
-print(agent_executor.invoke({"input": "How much is 10 + 10?"}))
+print(agent_executor.invoke({"input": "What is the capital of Iran?"}))
+# print(agent_executor.invoke({"input": "How much is 10 + 10?"}))
