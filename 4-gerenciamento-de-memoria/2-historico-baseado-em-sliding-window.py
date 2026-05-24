@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from langchain_openrouter import ChatOpenRouter
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.chat_history import InMemoryChatMessageHistory
 from langchain_core.runnables.history import RunnableWithMessageHistory
@@ -14,7 +14,7 @@ prompt = ChatPromptTemplate.from_messages([
     ("human", "{input}"),
 ])
 
-llm = ChatOpenRouter(model="gpt-5-nano", temperature=0.9)
+llm = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite", temperature=0.9)
 
 def prepare_inputs(payload: dict) -> dict:
     raw_history = payload.get("raw_history", [])
